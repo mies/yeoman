@@ -5,6 +5,11 @@ build:
   steps:
     # A step that executes `npm install` command
     - npm-install
+    - script:
+        name: install compass
+        code: |
+          sudo gem install compass
+          
     # A step that executes `npm test` command
     - npm-test
     # grunt
