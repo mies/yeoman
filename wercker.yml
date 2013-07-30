@@ -7,9 +7,6 @@ build:
     - npm-install
     # A step that executes `npm test` command
     - npm-test
-    # grunt
-    - wercker/grunt@0.0.2:
-        tasks: build
 
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
@@ -18,3 +15,12 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
+
+    - script:
+        name: echo ruby information
+        code: |
+          echo "ruby version $(ruby -v) running"
+
+    # grunt
+    - wercker/grunt@0.0.2:
+        tasks: build
