@@ -5,19 +5,16 @@ build:
   steps:
     # A step that executes `npm install` command
     - npm-install
-    - script: 
+    - script:
         name: install bower
         code: |
           sudo npm install -g bower
           bower install
-        
-    - script:
-        name: install compass
-        code: |
-          sudo gem install compass
-          
+
+
     # A step that executes `npm test` command
     - npm-test
+    - wercker/bundle-install@0.9.1
     # grunt
     - wercker/grunt@0.0.2:
         tasks: build
@@ -29,3 +26,12 @@ build:
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
+
+    - script:
+        name: echo ruby information
+        code: |
+          echo "ruby version $(ruby -v) running"
+
+    # grunt
+    - wercker/grunt@0.0.2:
+        tasks: build
