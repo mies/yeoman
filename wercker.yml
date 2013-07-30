@@ -5,6 +5,12 @@ build:
   steps:
     # A step that executes `npm install` command
     - npm-install
+    - script: 
+        name: install bower
+        code: |
+          npm install -g bower
+          bower install
+        
     - script:
         name: install compass
         code: |
