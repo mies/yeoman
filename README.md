@@ -1,4 +1,4 @@
 yeoman
 ======
 
-yeoman
+yeoman.
